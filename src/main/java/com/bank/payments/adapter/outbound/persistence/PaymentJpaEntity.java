@@ -3,6 +3,7 @@ package com.bank.payments.adapter.outbound.persistence;
 import com.bank.payments.domain.model.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +14,7 @@ import java.util.UUID;
 @Entity
 @Setter
 @Getter
+@Table(name = "payments")
 public class PaymentJpaEntity {
     @Id
     private UUID id;

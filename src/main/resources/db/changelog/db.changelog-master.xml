@@ -1,0 +1,23 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
+
+    <changeSet id="001-payment" author="said el ariss el idrissi">
+        <createTable tableName="payments">
+            <column name="id" type="UUID"><constraints primaryKey="true" nullable="false"/></column>
+            <column name="debtor_account_id" type="UUID"><constraints nullable="false"/></column>
+            <column name="creditor_account_id" type="UUID"><constraints nullable="false"/></column>
+            <column name="amount" type="NUMERIC(19,2)"><constraints nullable="false"/></column>
+            <column name="currency" type="VARCHAR(3)"><constraints nullable="false"/></column>
+            <column name="status" type="VARCHAR(16)"><constraints nullable="false"/></column>
+            <column name="idempotency_key" type="VARCHAR(64)"><constraints nullable="false" unique="true"/></column>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"/>
+        </createTable>
+        <createIndex tableName="payments" indexName="ix_payment_debtor">
+            <column name="debtor_account_id"/>
+        </createIndex>
+        <createIndex tableName="payments" indexName="ix_payment_creditor">
+            <column name="creditor_account_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
