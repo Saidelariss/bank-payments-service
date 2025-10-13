@@ -26,7 +26,7 @@ public class PaymentJpaEntity {
     private String idempotencyKey;
     private Instant createdAt = Instant.now();
 
-    public static PaymentJpaEntity fromDomain(Payment payment) {
+    public static PaymentJpaEntity fromDomain(Payment payment, String idempotencyKey) {
         PaymentJpaEntity paymentJpaEntity = new PaymentJpaEntity();
         paymentJpaEntity.setId(payment.id().value());
         paymentJpaEntity.setDebtorAccountId(payment.debtor().value());
@@ -35,6 +35,7 @@ public class PaymentJpaEntity {
         paymentJpaEntity.setCurrency(payment.amount().currency());
         paymentJpaEntity.setStatus(payment.status().name());
         paymentJpaEntity.setCreatedAt(payment.createdAt());
+        paymentJpaEntity.setIdempotencyKey(idempotencyKey);
 
         return paymentJpaEntity;
     }

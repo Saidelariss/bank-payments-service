@@ -27,7 +27,7 @@ public class PaymentPersistenceAdapter implements SavePayementPort, LoadPaymentB
 
     @Override
     public Payment save(Payment payment, String idempotencyKey) {
-        PaymentJpaEntity paymentJpaEntity = paymentJpaRepository.save(PaymentJpaEntity.fromDomain(payment));
+        PaymentJpaEntity paymentJpaEntity = paymentJpaRepository.save(PaymentJpaEntity.fromDomain(payment,idempotencyKey));
 
         return paymentJpaEntity.toDomain();
     }

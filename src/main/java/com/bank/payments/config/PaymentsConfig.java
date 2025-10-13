@@ -7,6 +7,7 @@ import com.bank.payments.application.service.CreateTransferService;
 import com.bank.payments.application.service.GetPaymentService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class PaymentsConfig {
@@ -22,6 +23,11 @@ public class PaymentsConfig {
     @Bean
     GetPaymentUseCase getPaymentUseCase(LoadPaymentPort loader) {
         return new GetPaymentService(loader);
+    }
+
+    @Bean
+    RestTemplate restTemplate() {
+        return new RestTemplate();
     }
 
 }
