@@ -2,17 +2,19 @@ package com.bank.payments.adapter.outbound.persistence;
 
 import com.bank.payments.application.outbound.LoadPaymentByIdempotencyPort;
 import com.bank.payments.application.outbound.LoadPaymentPort;
+import com.bank.payments.application.outbound.LoadPaymentsPort;
 import com.bank.payments.application.outbound.SavePayementPort;
 import com.bank.payments.domain.model.Payment;
 import com.bank.payments.domain.model.PaymentId;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
 @AllArgsConstructor
-public class PaymentPersistenceAdapter implements SavePayementPort, LoadPaymentByIdempotencyPort, LoadPaymentPort {
+public class PaymentPersistenceAdapter implements SavePayementPort, LoadPaymentByIdempotencyPort, LoadPaymentPort, LoadPaymentsPort {
     private final PaymentJpaRepository paymentJpaRepository;
 
     @Override
@@ -30,5 +32,10 @@ public class PaymentPersistenceAdapter implements SavePayementPort, LoadPaymentB
         PaymentJpaEntity paymentJpaEntity = paymentJpaRepository.save(PaymentJpaEntity.fromDomain(payment,idempotencyKey));
 
         return paymentJpaEntity.toDomain();
+    }
+
+    @Override
+    public List<Payment> loadAll() {
+        return paymentJpaRepository.findAll().stream().map(PaymentJpaEntity::toDomain).toList();
     }
 }
