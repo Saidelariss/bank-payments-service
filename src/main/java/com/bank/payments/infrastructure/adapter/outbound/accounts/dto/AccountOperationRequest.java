@@ -1,4 +1,4 @@
-package com.bank.payments.adapter.outbound.accounts.dto;
+package com.bank.payments.infrastructure.adapter.outbound.accounts.dto;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;

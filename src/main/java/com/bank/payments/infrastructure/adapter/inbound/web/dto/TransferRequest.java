@@ -1,4 +1,4 @@
-package com.bank.payments.adapter.inbound.web.dto;
+package com.bank.payments.infrastructure.adapter.inbound.web.dto;
 
 import java.math.BigDecimal;
 import java.util.UUID;

@@ -1,6 +1,6 @@
-package com.bank.payments.adapter.outbound.accounts;
+package com.bank.payments.infrastructure.adapter.outbound.accounts;
 
-import com.bank.payments.adapter.outbound.accounts.dto.AccountOperationRequest;
+import com.bank.payments.infrastructure.adapter.outbound.accounts.dto.AccountOperationRequest;
 import com.bank.payments.application.outbound.CreditAccountPort;
 import com.bank.payments.application.outbound.DebitAccountPort;
 import com.bank.payments.domain.model.AccountId;

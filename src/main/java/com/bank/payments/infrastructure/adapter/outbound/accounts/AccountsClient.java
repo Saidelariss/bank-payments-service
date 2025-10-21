@@ -1,4 +1,4 @@
-package com.bank.payments.adapter.outbound.accounts;
+package com.bank.payments.infrastructure.adapter.outbound.accounts;
 
 import java.math.BigDecimal;
 import java.util.UUID;

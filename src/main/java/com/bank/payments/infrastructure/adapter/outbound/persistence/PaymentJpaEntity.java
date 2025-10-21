@@ -1,4 +1,4 @@
-package com.bank.payments.adapter.outbound.persistence;
+package com.bank.payments.infrastructure.adapter.outbound.persistence;
 
 import com.bank.payments.domain.model.*;
 import jakarta.persistence.Entity;

@@ -1,7 +1,7 @@
-package com.bank.payments.adapter.inbound.web;
+package com.bank.payments.infrastructure.adapter.inbound.web;
 
-import com.bank.payments.adapter.inbound.web.dto.PaymentResponse;
-import com.bank.payments.adapter.inbound.web.dto.TransferRequest;
+import com.bank.payments.infrastructure.adapter.inbound.web.dto.PaymentResponse;
+import com.bank.payments.infrastructure.adapter.inbound.web.dto.TransferRequest;
 import com.bank.payments.application.inbound.CreateTransferUseCase;
 import com.bank.payments.application.inbound.GetPaymentUseCase;
 import com.bank.payments.application.inbound.GetPaymentsUseCase;
